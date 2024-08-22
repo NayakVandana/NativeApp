@@ -1,25 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
 
-import React from 'react';
+import React,{useState} from 'react';
 import {Button, Text, View} from 'react-native';
 
 
 const App = () => {
 
-  const fruit =(val)=>{
-    console.warn(val);
-  }
+const [name,setName] = useState("vandana");
+
+function testName(){
+   setName("Test");
+}
 
   return (
     <View>
-      <Text style={{fontSize: 30}}>Hello Text Componet1</Text>     
-      <Button title='Press Here' onPress={() =>fruit("Hello")} color={'green'}></Button>
-      <Button title='Press Here1' onPress={() =>fruit()} color={'red'}></Button>
+      <Text style={{fontSize: 30}}>{name}</Text>     
+      <Button title='Update name' onPress={testName} color={'green'}></Button>
+      
     </View>
   );
 };
