@@ -1,11 +1,11 @@
 import React from 'react';
 import {Button, Text, View} from 'react-native';
 
-const UserData = () => {
-
+const UserData = (props) => {
+ console.warn(props);
   return(
-    <View>
-      <Text style={{fontSize: 20}}>Name : Vandana</Text>
+    <View style={{backgroundColor :'green',padding:5}}>
+      <Text style={{fontSize: 20}}>{props.name}</Text>
     </View>
   )
 }
