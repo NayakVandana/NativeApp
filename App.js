@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Text, View,StyleSheet,TextInput, Button, FlatList} from 'react-native';
+import {Text, View,StyleSheet,TextInput, Button, FlatList, ScrollView} from 'react-native';
 const App = () => {
 
   const users =[
@@ -27,12 +27,12 @@ const App = () => {
   
   return (
     <View>
-      <Text style={{fontSize: 31}}>List with Flat Component</Text>
-      <FlatList 
-      data={users}
-      renderItem={({item})=><Text style={styles.item}>{item}</Text>}
-      keyExtractor={item=>item.id}
-      />
+      <Text style={{fontSize: 31}}>List with map Component</Text>
+      <ScrollView style={{marginBottom:50}}>
+      {
+        users.map((item)=> <Text style={styles.item}>{item.name}</Text>)
+      }
+      </ScrollView>        
     </View>
   );
 };
