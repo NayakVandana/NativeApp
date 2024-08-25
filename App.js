@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Text, View,StyleSheet,TextInput, Button, FlatList, ScrollView} from 'react-native';
 const App = () => {
-
+  <Text style={styles.item}>Sam</Text>
   const users =[
     {
       id:1,
@@ -27,25 +27,28 @@ const App = () => {
   
   return (
     <View>
-      <Text style={{fontSize: 31}}>List with map Component</Text>
-      <ScrollView style={{marginBottom:50}}>
-      {
-        users.map((item)=> <Text style={styles.item}>{item.name}</Text>)
-      }
-      </ScrollView>        
+      <Text style={{fontSize: 31}}>Grid with Dynamic Date</Text>
+      <View style={{flex:1,flexDirection:'row',flexWrap:'wrap'}}>
+        {
+          users.map((item)=><Text style={styles.item}>{item.name}</Text>)
+        }      
+      </View>
+             
     </View>
   );
 };
 
 const styles =StyleSheet.create({
   item:{
-    fontSize:24,
-    padding:10,
-    color:'#fff',
+    fontSize:25,
     backgroundColor:'blue',
-    borderColor:'black',    
-    borderWidth:1,    
-    margin:10,
+    color:'#fff',
+    margin:5,
+    padding:5,
+    width:120,
+    height:120,
+    textAlignVertical:'center',
+    textAlign:'center',
   }
 })
 export default App;
