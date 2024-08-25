@@ -1,29 +1,29 @@
-import React from 'react';
-import {Text, View,StyleSheet} from 'react-native';
-import ExStyle from './style'
+import React, { useState } from 'react';
+import {Text, View,StyleSheet,TextInput, Button} from 'react-native';
 const App = () => {
+  const [name,setName] = useState("");
   return (
     <View>
-      <Text style={{fontSize: 30,color:'red',backgroundColor:'green'}}>style in React native</Text>
-      <Text style={styles.textBox}>Hello Text Componet2</Text>
-      <Text style={styles.textBox}>Hello Text Componet2</Text>
-      <Text style={ExStyle.textBox}>Hello Text Componet2</Text>
-      <Text style={[Exstyles.textBox,styles.textBox,{marginTop:20}]}>Hello Text Componet2</Text>
+      <Text style={{fontSize: 30}}>Handle Text Input</Text>
+      <Text style={{fontSize: 30}}>Your name is : {name}</Text>
+      <TextInput 
+       style={styles.TextInput}
+       placeholder='Enter Your name'
+       value={name}
+       onChangeText={(text) => setName(text)}
+      />
+      <Button title='Clear Input Value' onPress={()=>setName('')}/>
     </View>
   );
 };
 
 const styles =StyleSheet.create({
-  textBox:{
-    color:'fff',
-    fontSize:20,
-    backgroundColor:'blue',
-    marginBottom:10,
-    padding:10,
-    borderRadius:10,
-    textAlignVertical:'center',
-    textAlign:'center',
+  TextInput:{
+    fontSize18,
+    color:'red',
     borderWidth:2,
+    borderColor:'red',
+    margin:10,
   }
 })
 export default App;
