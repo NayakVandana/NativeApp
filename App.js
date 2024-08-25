@@ -19,7 +19,7 @@ const App = () => {
 
 const styles =StyleSheet.create({
   TextInput:{
-    fontSize18,
+    fontSize:18,
     color:'red',
     borderWidth:2,
     borderColor:'red',
