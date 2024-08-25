@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Text, View,StyleSheet,TextInput, Button, FlatList, ScrollView} from 'react-native';
+import {Text, View,StyleSheet,TextInput, Button, FlatList, ScrollView, SectionList} from 'react-native';
 import UserData from './components/UserData';
 const App = () => {
   <Text style={styles.item}>Sam</Text>
@@ -7,38 +7,36 @@ const App = () => {
     {
       id:1,
       name:"Test",
-      email:"test@email.com"
+      data:['PHP',' React js',"Angular"]
     },
     {
       id:2,
       name:"Test2",
-      email:"test2@email.com"
+      data:['Java',' Js',"HTML"]
     },
     {
       id:3,
       name:"Test3",
-      email:"test3@email.com"
+      data:['C',' C++',"Python"]
     },
     {
       id:4,
       name:"Test4",
-      email:"test4@email.com"
-    },
-    {
-      id:5,
-      name:"Test5",
-      email:"test5@email.com"
+      data:['CSS',' Bootstrap',"HTML"]
     }
   ]
   
   return (
     <View>
-      <Text style={{fontSize: 31}}>Component in Loop with Flatlist</Text>
-      <FlatList
-      data={users}
-      renderItem={({item})=><UserData item={item}/>}
-      
+      <Text style={{fontSize: 31}}>Section List in React-Native</Text>
+      <SectionList
+      sections={users}
+      renderItem={({})=><Text style={{fontSize:20,marginLeft:20}}>{item}</Text>}
+      renderSectionHeader={({Section:{name}})=>{
+        <Text style={{fontSize:25,color:'red'}}>{name}</Text>
+      }}
       />
+     
              
     </View>
   );
