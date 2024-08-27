@@ -4,17 +4,24 @@ import Student from './components/Student';
 
 class App extends Component{
 
-   fruit = () =>{
-    console.warn("Apple");
+   constructor(){
+    this.state ={
+      name:"Test",
+    }
+   }
+
+   updateName(val){
+    this.setState({name:val})
    }
   render(){
     return(
 
       <View>
-        <Text style={{fontSize:30,color:'red'}}>Class Component</Text>
-        <TextInput  placeholder='Enter your name'/>
-        <Button title="Press Me" onPress={this.fruit}/>
-        <Student/>
+        <Text style={{fontSize:30,color:'red'}}>{this.state.name}</Text>
+        <TextInput  placeholder='Enter your name' 
+        onChangeText={(text)=> this.updateName(text)}/>
+        <Button title="Press Me"/>
+        <Student name={this.state}/>
       </View>
     )
   }

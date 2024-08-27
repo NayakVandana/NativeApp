@@ -5,11 +5,11 @@ import UserData from './components/UserData';
 class Student extends Component{
 
   render(){
+    // console.warn(this.props);
     return(
 
       <View>
-        <Text style={{fontSize:30,color:'green'}}>Student Component</Text>
-        
+        <Text style={{fontSize:30,color:'green'}}>Student name:{this.props.name}</Text>
       </View>
     )
   }
