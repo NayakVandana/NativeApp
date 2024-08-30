@@ -11,24 +11,41 @@ import {
 const App = () => {
   const [selectedRadion, SetSelectedRadio] = useState(1);
 
+  const skills = [
+    {
+      id: 1,
+      name: 'JAVA',
+    },
+    {
+      id: 1,
+      name: 'PHP',
+    },
+    {
+      id: 1,
+      name: 'Node',
+    },
+    {
+      id: 1,
+      name: 'SQL',
+    },
+  ];
+
   return (
     <View style={styles.main}>
-      <TouchableOpacity onPress={()=>SetSelectedRadio(1)}>
-        <View style={styles.radioWrapper}>
-          <View style={styles.radio}>
-            {selectedRadion === 1 ? <View style={styles.radioBg}></View> : null}
+      {skills.map((item,index) => (
+        <TouchableOpacity 
+        key={index}
+        onPress={() => SetSelectedRadio(item.id)}>
+          <View style={styles.radioWrapper}>
+            <View style={styles.radio}>
+              {selectedRadion == item.id? (
+                <View style={styles.radioBg}></View>
+              ) : null}
+            </View>
+            <Text style={styles.radioText}>{item.name}</Text>
           </View>
-          <Text style={styles.radioText}>Radio 1</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={()=>SetSelectedRadio(2)}>
-        <View style={styles.radioWrapper}>
-          <View style={styles.radio}>
-            {selectedRadion === 2 ? <View style={styles.radioBg}></View> : null}
-          </View>
-          <Text style={styles.radioText}>Radio 2</Text>
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      ))}
     </View>
   );
 };
@@ -41,7 +58,7 @@ const styles = StyleSheet.create({
   },
   radioText: {
     fontSize: 20,
-    color:'skyblue'
+    color: 'skyblue',
   },
   radio: {
     height: 40,
