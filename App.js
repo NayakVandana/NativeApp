@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Text, View,StyleSheet,TextInput, Button, FlatList, ScrollView} from 'react-native';
 import UserData from './components/UserData';
 const App = () => {
-  <Text style={styles.item}>Sam</Text>
+ 
   const users =[
     {
       id:1,
