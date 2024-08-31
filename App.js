@@ -9,7 +9,7 @@ import {
   ScrollView,
   SectionList,
 } from 'react-native';
-import UserData from './components/UserData';
+
 
 const App = () => {
   const [show, setShow] = useState(false);
