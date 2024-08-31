@@ -9,7 +9,7 @@ import {
   ScrollView,
   SectionList,
 } from 'react-native';
-import UserData from './components/UserData';
+
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -35,7 +35,7 @@ const App = () => {
   );
 };
 
-const User = () => {
+const User = (props) => {
   // console.warn(props.info);
 
   useEffect(() => {
