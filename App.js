@@ -30,7 +30,7 @@ const App = () => {
       <Text style={{fontSize: 31}}>List with Flat Component</Text>
       <FlatList 
       data={users}
-      renderItem={({item})=><Text style={styles.item}>{item}</Text>}
+      renderItem={({item})=><Text style={styles.item}>{item.name}</Text>}
       keyExtractor={item=>item.id}
       />
     </View>
