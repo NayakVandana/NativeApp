@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 const App = () => {
-  const [show, SetShow] = useState(flase);
+  const [show, SetShow] = useState(false);
 
   displayLoader = () => {
     SetShow(true);
