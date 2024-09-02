@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   Button,
   Modal,
+  Platform,
   Pressable,
   StatusBar,
   StyleSheet,
@@ -10,26 +11,27 @@ import {
 } from 'react-native';
 
 const App = () => {
-  const [hide,setHide]=useState(false);
-  const [barStyle,setBarStyle]=useState("default");
+
 
   return (
-    <View style={styles.container}>
-      <StatusBar
-      backgroundColor="blue"
-      barStyle={barStyle}
-      hidden={hide}
-      />
-      <Button title='Toggle Status Bar' onPress={()=>setHide(!hide)}/>
-      <Button title='Update Style'onPress={()=>setBarStyle("dark-content")}/>
+    <View >
+      <Text style={{fontSize:30}}>Platform : {Platform.OS}</Text>
+      {
+        Platform.OS == "android" ?
+        <view style={{backgroundColor:'green',height:100,width:100}}></view>
+        :
+        <view style={{backgroundColor:'red',height:100,width:100}}></view>
+      }
+      <Text style={styles.text}>Hello</Text>
+      <Text style={{fontSize:20}}>{JSON.stringify(Platform.constants.reactNativeVersion.minor)}</Text>
+      
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,  
-    justifyContent:'center',
+  text: {
+    color:Platform.OS == "android" ? "orange" :'blue',
   },
  
 });
