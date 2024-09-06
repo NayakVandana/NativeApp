@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   Button,
   Modal,
@@ -9,31 +9,11 @@ import {
   Text,
   View,
 } from 'react-native';
+import {WebView} from 'react-native-webview';
 
 const App = () => {
-
-
-  return (
-    <View >
-      <Text style={{fontSize:30}}>Platform : {Platform.OS}</Text>
-      {
-        Platform.OS == "android" ?
-        <view style={{backgroundColor:'green',height:100,width:100}}></view>
-        :
-        <view style={{backgroundColor:'red',height:100,width:100}}></view>
-      }
-      <Text style={styles.text}>Hello</Text>
-      <Text style={{fontSize:20}}>{JSON.stringify(Platform.constants.reactNativeVersion.minor)}</Text>
-      
-    </View>
-  );
+  return <WebView source={{url: 'https://reactnative.dev/'}} />;
 };
 
-const styles = StyleSheet.create({
-  text: {
-    color:Platform.OS == "android" ? "orange" :'blue',
-  },
- 
-});
-
 export default App;
+//npm i react-native-webview
