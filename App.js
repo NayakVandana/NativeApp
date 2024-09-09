@@ -1,54 +1,54 @@
 import React, {useState} from 'react';
 import {
   Button,
-  Modal,
-  Platform,
-  Pressable,
-  StatusBar,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import{createNativeStackNavigator} from '@react-navigation/native-stack';
 
+const Stack = createNativeStackNavigator;
 const App = () => {
   const [show,setShow] = useState(false);
   return (
-    <View style={styles.conatiner}>
-      {
-        show ?
-        <View style={styles.modal}>
-        <View style={styles.body}>
-          <Text>Some text</Text>
-          <Button title="Open Dialog" onPress={()=>setShow(false)}/>
-        </View>
-      </View> 
-      :null
-      }
-      <Button title="Open Dialog" onPress={()=>setShow(true)}/>
+    <NavigationContainer style={styles.conatiner}>
+
+      <Stack.Navigator>
+         <Stack.Screen name='Login' component={Login}/>
+        <Stack.Screen name='Home' component={Home}/>
+      
+      </Stack.Navigator>
+      
+    </NavigationContainer>
+  );
+};
+
+
+const Home = () => {
+  
+  return (
+    <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+       <Text style={{fontSize:30}}>Home screen</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  conatiner: {
-    flex: 1,
-    justifyContent: 'flex-end',
-  },
-  modal: {
-    flex: 1,
-    backgroundColor: 'green',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  body: {
-    backgroundColor: '#fff',
-    height: 300,
-    width: 300,
-    padding: 20,
-    justifyContent: 'flex-end',
-    borderRadius:10,
-  },
-});
+const Login = (props) => {
+  
+  return (
+    <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+       <Text style={{fontSize:30}}>Login screen</Text>
+       <Button title='Go to Home Page' onPress={()=> props.navigation.navigate("Home")}/>
+    </View>
+  );
+};
+
+
 
 export default App;
-//npm i react-native-webview
+
+
+//npm install react-native-screens react-native-safe-area-context
+
+//npm install @react-navigation/native-stack
