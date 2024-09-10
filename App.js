@@ -11,6 +11,10 @@ import{createNativeStackNavigator} from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator;
 const App = () => {
   const [show,setShow] = useState(false);
+
+  const btnAction= ()=>{
+    console.warn("btn pressed");
+  }
   return (
     <NavigationContainer style={styles.conatiner}>
 
@@ -26,7 +30,9 @@ const App = () => {
       }}
       >
          <Stack.Screen name='Login' component={Login} 
-        options={{       
+        options={{   
+          headerTitle:()=><Button onPress={btnAction} title='Left'/>, 
+          headerRight:()=><Header/>,        
           headerStyle:{
             backgroundColor:'skyblue',
           },
@@ -41,6 +47,14 @@ const App = () => {
       </Stack.Navigator>
       
     </NavigationContainer>
+  );
+};
+
+
+const Header = () => {
+  
+  return (
+    <Button title='btn'/>
   );
 };
 
