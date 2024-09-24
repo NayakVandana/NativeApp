@@ -1,69 +1,36 @@
 import React, {useState} from 'react';
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import{createNativeStackNavigator} from '@react-navigation/native-stack';
-import Home from './components/Home';
-import Login from './components/Login';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-const Stack = createNativeStackNavigator;
+const Tab = createBottomTabNavigator();
 const App = () => {
-  const [show,setShow] = useState(false);
-
-  const btnAction= ()=>{
-    console.warn("btn pressed");
-  }
   return (
-    <NavigationContainer style={styles.conatiner}>
-
-      <Stack.Navigator
-       ScreenOptions={{       
-        headerStyle:{
-          backgroundColor:'blue',
-        },
-        headerTintColor:'orange',
-        headerTitleStyle:{
-          fontSize:25
-        }
-      }}
-      >
-         <Stack.Screen name='Login' component={Login} 
-        options={{   
-          headerTitle:()=><Button onPress={btnAction} title='Left'/>, 
-          headerRight:()=><Header/>,        
-          headerStyle:{
-            backgroundColor:'skyblue',
-          },
-          headerTintColor:'white',
-          headerTitleStyle:{
-            fontSize:40
-          }
-        }}
-         />
-        <Stack.Screen name='Home' component={Home}/>
-      
-      </Stack.Navigator>
-      
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Login" component={Login} />
+        <Tab.Screen name="SignUp" component={SignUp} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
 
-
-const Header = () => {
-  
+const Login = () => {
   return (
-    <Button title='btn'/>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text style={{fontSize: 40}}>SignUp</Text>
+    </View>
   );
 };
 
+const SignUp = () => {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text style={{fontSize: 40}}>SignUp</Text>
+    </View>
+  );
+};
 
 export default App;
 
-
-//npm install react-native-screens react-native-safe-area-context
-
-//npm install @react-navigation/native-stack
+//npm install @react-navigation/bottom-tabs
