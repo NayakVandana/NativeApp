@@ -2,14 +2,16 @@ import React, {useState} from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator();
 const App = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Login" component={Login} />
         <Tab.Screen name="SignUp" component={SignUp} />
+        <Tab.Screen name="Other" component={SignUp} />
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -31,6 +33,10 @@ const SignUp = () => {
   );
 };
 
+
+
 export default App;
 
-//npm install @react-navigation/bottom-tabs
+//npm install @react-navigation/material-top tabs react-native-tab-view
+
+//npm install react-native-pager-view
