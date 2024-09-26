@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  Button,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+} from 'react-native';
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -15,25 +22,21 @@ const App = () => {
     getAPIData();
   }, []);
   return (
-    <ScrollView>
-      <Text style={{fontSize: 40}}>API Call</Text>
-      {data.length
-        ? data.map(item => {
-            <View
-              style={{
-                padding10,
-                borderBottomColor: '#ccc',
-                borderBottomWidth: 1,
-              }}>
-              <Text style={{fontSize: 20, backgroundColor: '#ddd'}}>
-                Id : {item.id}
-              </Text>
-              <Text style={{fontSize: 20}}>Title : {item.title}</Text>
-              <Text style={{fontSize: 20}}>Body : {item.body}</Text>
-            </View>;
-          })
-        : null}
-    </ScrollView>
+    <View>
+      <Text style={{fontSize: 30}}>Flatlist API Data </Text>
+      {data.length ? (
+        <FlatList
+          data={data}
+          renderItem={({item}) => (
+            <View style={{borderBottomColor:"orange",borderBottomWidth:1,padding:10}}>
+              <Text style={{fontSize: 20,backgroundColor:"orange"}}>{item.id}</Text>
+              <Text style={{fontSize: 18}}>{item.title}</Text>
+              <Text style={{fontSize: 18}}>{item.body}</Text>
+            </View>
+          )}
+        />
+      ) : null}
+    </View>
   );
 };
 
